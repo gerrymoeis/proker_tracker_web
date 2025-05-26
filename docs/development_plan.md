@@ -13,9 +13,9 @@
 - Pembuatan minimal 5 tabel utama:
   1. `users` - Informasi pengguna dan autentikasi
   2. `organizations` - Data organisasi
-  3. `programs` - Program kerja organisasi
-  4. `tasks` - Tugas-tugas dalam program kerja
-  5. `milestones` - Tonggak pencapaian program
+  3. `departments` - Departemen dalam organisasi
+  4. `programs` - Program kerja organisasi
+  5. `tasks` - Tugas-tugas dalam program kerja
   6. `comments` - Komentar dan diskusi
 - Implementasi relasi antar tabel
 - Setup koneksi database dengan Next.js API
