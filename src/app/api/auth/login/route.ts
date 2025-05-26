@@ -7,6 +7,95 @@ import { sign } from 'jsonwebtoken';
 // JWT secret key (should be in environment variables)
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
 
+/**
+ * @swagger
+ * /api/auth/login:
+ *   post:
+ *     summary: Authenticate a user
+ *     tags: [Auth]
+ *     description: Authenticate a user with email and password
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - password
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 description: User's email address
+ *               password:
+ *                 type: string
+ *                 format: password
+ *                 description: User's password
+ *     responses:
+ *       200:
+ *         description: Authentication successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Login berhasil
+ *                 user:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: integer
+ *                       description: User's ID
+ *                     name:
+ *                       type: string
+ *                       description: User's name
+ *                     email:
+ *                       type: string
+ *                       format: email
+ *                       description: User's email address
+ *                     organization_name:
+ *                       type: string
+ *                       description: User's organization name
+ *                     role:
+ *                       type: string
+ *                       description: User's role
+ *                     profile_image:
+ *                       type: string
+ *                       description: User's profile image
+ *       400:
+ *         description: Invalid credentials
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Email dan password diperlukan
+ *       401:
+ *         description: Invalid email or password
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Email atau password salah
+ *       500:
+ *         description: Server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Terjadi kesalahan pada server
+ */
 export async function POST(req: NextRequest) {
   try {
     const { email, password } = await req.json();

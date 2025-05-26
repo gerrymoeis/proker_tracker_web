@@ -5,7 +5,71 @@ import { verify } from 'jsonwebtoken';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
 
-// Get a single task by ID
+/**
+ * @swagger
+ * /api/tasks/{id}:
+ *   get:
+ *     summary: Get a specific task by ID
+ *     tags: [Tasks]
+ *     description: Retrieve detailed information about a specific task
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Task ID
+ *     responses:
+ *       200:
+ *         description: Task details retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 task:
+ *                   $ref: '#/components/schemas/Task'
+ *                 program:
+ *                   $ref: '#/components/schemas/Program'
+ *                 assignedUser:
+ *                   $ref: '#/components/schemas/User'
+ *                 comments:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Comment'
+ *       401:
+ *         description: Unauthorized - Invalid or missing token
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Tidak terautentikasi
+ *       404:
+ *         description: Task not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Tugas tidak ditemukan
+ *       500:
+ *         description: Server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Terjadi kesalahan pada server
+ */
 export async function GET(
   request: NextRequest,
   { params }: { params: { id: string } }
@@ -71,7 +135,104 @@ export async function GET(
   }
 }
 
-// Update a task by ID
+/**
+ * @swagger
+ * /api/tasks/{id}:
+ *   patch:
+ *     summary: Update a specific task
+ *     tags: [Tasks]
+ *     description: Update details of a specific task
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Task ID
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *                 description: Task title
+ *               description:
+ *                 type: string
+ *                 description: Task description
+ *               status:
+ *                 type: string
+ *                 enum: [todo, in_progress, review, completed]
+ *                 description: Task status
+ *               priority:
+ *                 type: string
+ *                 enum: [low, medium, high, urgent]
+ *                 description: Task priority
+ *               due_date:
+ *                 type: string
+ *                 format: date
+ *                 description: Task due date
+ *               assigned_to:
+ *                 type: integer
+ *                 description: ID of the user assigned to this task
+ *     responses:
+ *       200:
+ *         description: Task updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Tugas berhasil diperbarui
+ *                 task:
+ *                   $ref: '#/components/schemas/Task'
+ *       400:
+ *         description: Invalid input data
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Data tugas tidak valid
+ *       401:
+ *         description: Unauthorized - Invalid or missing token
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Tidak terautentikasi
+ *       404:
+ *         description: Task not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Tugas tidak ditemukan
+ *       500:
+ *         description: Server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Terjadi kesalahan pada server
+ */
 export async function PATCH(
   request: NextRequest,
   { params }: { params: { id: string } }
@@ -183,7 +344,64 @@ export async function PATCH(
   }
 }
 
-// Delete a task by ID
+/**
+ * @swagger
+ * /api/tasks/{id}:
+ *   delete:
+ *     summary: Delete a specific task
+ *     tags: [Tasks]
+ *     description: Delete a specific task by ID
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Task ID
+ *     responses:
+ *       200:
+ *         description: Task deleted successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Tugas berhasil dihapus
+ *       401:
+ *         description: Unauthorized - Invalid or missing token
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Tidak terautentikasi
+ *       404:
+ *         description: Task not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Tugas tidak ditemukan
+ *       500:
+ *         description: Server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Terjadi kesalahan pada server
+ */
 export async function DELETE(
   request: NextRequest,
   { params }: { params: { id: string } }

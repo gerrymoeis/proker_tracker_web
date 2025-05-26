@@ -33,7 +33,6 @@ export default function CreateTaskPage() {
     description: '',
     dueDate: '',
     programId: '',
-    assigneeId: '',
     priority: 'sedang',
     status: 'belum_dimulai'
   });
@@ -64,24 +63,21 @@ export default function CreateTaskPage() {
         console.log('Programs data received:', programsData);
         setPrograms(programsData.programs);
 
-        // Fetch users (potential assignees) with credentials to include cookies
-        const usersResponse = await fetch('/api/users', {
+        // Fetch members (potential assignees) with credentials to include cookies
+        const membersResponse = await fetch('/api/members/list', {
           credentials: 'include' // Important for sending cookies
         });
         
-        if (!usersResponse.ok) {
-          console.error('Users API error:', usersResponse.status, usersResponse.statusText);
-          throw new Error('Gagal mengambil data pengguna');
+        if (!membersResponse.ok) {
+          console.error('Members API error:', membersResponse.status, membersResponse.statusText);
+          throw new Error('Gagal mengambil data anggota');
         }
         
-        const usersData = await usersResponse.json();
-        console.log('Users data received:', usersData);
-        setUsers(usersData.users);
+        const membersData = await membersResponse.json();
+        console.log('Members data received:', membersData);
+        setUsers(membersData.members || []);
 
-        // Set default assignee to current user
-        if (user) {
-          setFormData(prev => ({ ...prev, assigneeId: user.id.toString() }));
-        }
+        // No need to set default assignee as we've removed that field
       } catch (err) {
         console.error('Error fetching form data:', err);
         setError('Terjadi kesalahan saat memuat data');
@@ -112,7 +108,7 @@ export default function CreateTaskPage() {
     setSuccess('');
 
     // Validate form
-    if (!formData.name || !formData.description || !formData.dueDate || !formData.programId || !formData.assigneeId) {
+    if (!formData.name || !formData.description || !formData.dueDate || !formData.programId) {
       setError('Semua kolom wajib diisi');
       setIsSubmitting(false);
       return;
@@ -135,7 +131,6 @@ export default function CreateTaskPage() {
       description: formData.description,
       due_date: formData.dueDate,
       program_id: parseInt(formData.programId),
-      assignee_id: parseInt(formData.assigneeId),
       priority: formData.priority,
       status: formData.status
     };
@@ -269,25 +264,7 @@ export default function CreateTaskPage() {
                     </Select>
                   </div>
                   
-                  <div className="space-y-2">
-                    <Label htmlFor="assigneeId">Penanggung Jawab</Label>
-                    <Select
-                      value={formData.assigneeId}
-                      onValueChange={(value) => handleSelectChange('assigneeId', value)}
-                      disabled={isLoading}
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Pilih penanggung jawab" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {users.map((user) => (
-                          <SelectItem key={user.id} value={user.id.toString()}>
-                            {user.name}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
+                  {/* Penanggung Jawab field removed */}
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

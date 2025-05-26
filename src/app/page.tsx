@@ -99,6 +99,58 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Developer Section */}
+        <section className="w-full py-12 md:py-24 bg-gradient-to-r from-primary/10 to-secondary/10 backdrop-blur-sm">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-heading bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">
+                Untuk Pengembang
+              </h2>
+              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-lg">
+                Integrasikan aplikasi Anda dengan Proker Tracker melalui API kami
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              <Card className="border border-primary/20 bg-card/30 backdrop-blur-sm">
+                <CardHeader>
+                  <CardTitle className="text-xl font-bold">API Documentation</CardTitle>
+                  <CardDescription>Dokumentasi lengkap untuk semua endpoint API</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">
+                    Akses dokumentasi lengkap API Proker Tracker untuk mengintegrasikan aplikasi Anda dengan platform kami. Dokumentasi ini mencakup semua endpoint, parameter, dan contoh respons.
+                  </p>
+                </CardContent>
+                <CardFooter>
+                  <Link href="/api-docs" target="_blank">
+                    <Button variant="default" className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90">
+                      Lihat Dokumentasi API
+                    </Button>
+                  </Link>
+                </CardFooter>
+              </Card>
+              <Card className="border border-primary/20 bg-card/30 backdrop-blur-sm">
+                <CardHeader>
+                  <CardTitle className="text-xl font-bold">Open Source</CardTitle>
+                  <CardDescription>Kontribusi pada pengembangan Proker Tracker</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">
+                    Proker Tracker adalah proyek open source yang dikembangkan oleh mahasiswa untuk mahasiswa. Kami menyambut kontribusi dari komunitas pengembang untuk meningkatkan platform ini.
+                  </p>
+                </CardContent>
+                <CardFooter>
+                  <Link href="https://github.com/gerrymoeis/proker_tracker_web/tree/master" target="_blank">
+                    <Button variant="outline" className="w-full">
+                      GitHub Repository
+                    </Button>
+                  </Link>
+                </CardFooter>
+              </Card>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="w-full py-12 md:py-24">
           <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -113,6 +165,11 @@ export default function Home() {
                 <Link href="/register">
                   <Button size="lg" className="bg-primary hover:bg-primary/90 w-full sm:w-auto">
                     Daftar Sekarang
+                  </Button>
+                </Link>
+                <Link href="/api-docs">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                    API Documentation
                   </Button>
                 </Link>
               </div>

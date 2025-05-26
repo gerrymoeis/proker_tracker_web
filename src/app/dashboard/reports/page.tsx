@@ -231,12 +231,12 @@ export default function ReportsPage() {
               
               <Card>
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-sm font-medium">Program Completion</CardTitle>
+                  <CardTitle className="text-sm font-medium">Penyelesaian Program</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">{programCompletionRate}%</div>
                   <p className="text-xs text-muted-foreground">
-                    {completedPrograms} of {totalPrograms} programs
+                    {completedPrograms} dari {totalPrograms} program
                   </p>
                   <Progress value={programCompletionRate} className="h-2 mt-2" />
                 </CardContent>
@@ -244,12 +244,12 @@ export default function ReportsPage() {
               
               <Card>
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-sm font-medium">Task Completion</CardTitle>
+                  <CardTitle className="text-sm font-medium">Penyelesaian Tugas</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">{taskCompletionRate}%</div>
                   <p className="text-xs text-muted-foreground">
-                    {completedTasks} of {totalTasks} tasks
+                    {completedTasks} dari {totalTasks} tugas
                   </p>
                   <Progress value={taskCompletionRate} className="h-2 mt-2" />
                 </CardContent>
@@ -259,9 +259,9 @@ export default function ReportsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Card>
                 <CardHeader>
-                  <CardTitle>Program Status Distribution</CardTitle>
+                  <CardTitle>Distribusi Status Program</CardTitle>
                   <CardDescription>
-                    Current status of all programs
+                    Status terkini semua program
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="h-[300px] flex items-center justify-center">
@@ -287,7 +287,7 @@ export default function ReportsPage() {
                       </PieChart>
                     </ResponsiveContainer>
                   ) : (
-                    <p className="text-muted-foreground">No program data available</p>
+                    <p className="text-muted-foreground">Tidak ada data program tersedia</p>
                   )}
                 </CardContent>
               </Card>
@@ -322,7 +322,7 @@ export default function ReportsPage() {
                       </PieChart>
                     </ResponsiveContainer>
                   ) : (
-                    <p className="text-muted-foreground">No task data available</p>
+                    <p className="text-muted-foreground">Tidak ada data tugas tersedia</p>
                   )}
                 </CardContent>
               </Card>
@@ -333,9 +333,9 @@ export default function ReportsPage() {
           <TabsContent value="programs" className="space-y-4">
             <Card>
               <CardHeader>
-                <CardTitle>Program Status Overview</CardTitle>
+                <CardTitle>Ikhtisar Status Program</CardTitle>
                 <CardDescription>
-                  Detailed breakdown of program statuses
+                  Rincian detail status program
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -352,7 +352,7 @@ export default function ReportsPage() {
                               <span className="font-medium">{program.name}</span>
                             </div>
                             <span className="text-sm text-muted-foreground">
-                              {program.completed_tasks} / {program.total_tasks} tasks
+                              {program.completed_tasks} / {program.total_tasks} tugas
                             </span>
                           </div>
                           <Progress 
@@ -363,7 +363,7 @@ export default function ReportsPage() {
                       ))}
                     </div>
                   ) : (
-                    <p className="text-muted-foreground">No program data available</p>
+                    <p className="text-muted-foreground">Tidak ada data program tersedia</p>
                   )}
                 </div>
               </CardContent>
@@ -403,16 +403,16 @@ export default function ReportsPage() {
                       </PieChart>
                     </ResponsiveContainer>
                   ) : (
-                    <p className="text-muted-foreground">No task data available</p>
+                    <p className="text-muted-foreground">Tidak ada data tugas tersedia</p>
                   )}
                 </CardContent>
               </Card>
               
               <Card>
                 <CardHeader>
-                  <CardTitle>Task Priority Distribution</CardTitle>
+                  <CardTitle>Distribusi Prioritas Tugas</CardTitle>
                   <CardDescription>
-                    Distribution of tasks by priority
+                    Distribusi tugas berdasarkan prioritas
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="h-[300px] flex items-center justify-center">
@@ -438,7 +438,7 @@ export default function ReportsPage() {
                       </PieChart>
                     </ResponsiveContainer>
                   ) : (
-                    <p className="text-muted-foreground">No task data available</p>
+                    <p className="text-muted-foreground">Tidak ada data tugas tersedia</p>
                   )}
                 </CardContent>
               </Card>
@@ -449,9 +449,9 @@ export default function ReportsPage() {
           <TabsContent value="departments" className="space-y-4">
             <Card>
               <CardHeader>
-                <CardTitle>Department Performance</CardTitle>
+                <CardTitle>Kinerja Departemen</CardTitle>
                 <CardDescription>
-                  Program and task completion rates by department
+                  Tingkat penyelesaian program dan tugas berdasarkan departemen
                 </CardDescription>
               </CardHeader>
               <CardContent className="h-[400px] flex items-center justify-center">
@@ -467,15 +467,15 @@ export default function ReportsPage() {
                       }}
                     >
                       <XAxis dataKey="name" />
-                      <YAxis label={{ value: 'Completion %', angle: -90, position: 'insideLeft' }} />
+                      <YAxis label={{ value: 'Penyelesaian %', angle: -90, position: 'insideLeft' }} />
                       <Tooltip />
                       <Legend />
-                      <Bar dataKey="programCompletion" name="Program Completion %" fill="#4F46E5" />
-                      <Bar dataKey="taskCompletion" name="Task Completion %" fill="#EC4899" />
+                      <Bar dataKey="programCompletion" name="Penyelesaian Program %" fill="#4F46E5" />
+                      <Bar dataKey="taskCompletion" name="Penyelesaian Tugas %" fill="#EC4899" />
                     </BarChart>
                   </ResponsiveContainer>
                 ) : (
-                  <p className="text-muted-foreground">No department data available</p>
+                  <p className="text-muted-foreground">Tidak ada data departemen tersedia</p>
                 )}
               </CardContent>
             </Card>

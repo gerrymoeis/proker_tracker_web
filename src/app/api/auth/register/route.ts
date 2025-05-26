@@ -7,6 +7,104 @@ import { sign } from 'jsonwebtoken';
 // JWT secret key (should be in environment variables)
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
 
+/**
+ * @swagger
+ * /api/auth/register:
+ *   post:
+ *     summary: Register a new user
+ *     tags: [Auth]
+ *     description: Register a new user and organization
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *               - email
+ *               - password
+ *               - organization_name
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 description: User's full name
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 description: User's email address
+ *               password:
+ *                 type: string
+ *                 format: password
+ *                 description: User's password
+ *               organization_name:
+ *                 type: string
+ *                 description: Name of the organization
+ *               role:
+ *                 type: string
+ *                 description: User's role in the organization
+ *                 default: admin
+ *     responses:
+ *       201:
+ *         description: User registered successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Registrasi berhasil
+ *                 user:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: integer
+ *                       description: User's ID
+ *                     name:
+ *                       type: string
+ *                       description: User's name
+ *                     email:
+ *                       type: string
+ *                       format: email
+ *                       description: User's email address
+ *                     organization_name:
+ *                       type: string
+ *                       description: User's organization name
+ *                     role:
+ *                       type: string
+ *                       description: User's role
+ *       400:
+ *         description: Invalid input data
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Nama, email, password, dan nama organisasi diperlukan
+ *       409:
+ *         description: Email already exists
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Email sudah terdaftar
+ *       500:
+ *         description: Server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Terjadi kesalahan pada server
+ */
 export async function POST(req: NextRequest) {
   try {
     const { name, email, password, organization_name, role } = await req.json();

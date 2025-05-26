@@ -2,6 +2,48 @@ import { NextRequest, NextResponse } from 'next/server';
 import { executeQuery } from '@/lib/db';
 import { verifyAuth } from '@/lib/api-auth';
 
+/**
+ * @swagger
+ * /api/programs:
+ *   get:
+ *     summary: Get all programs
+ *     tags: [Programs]
+ *     description: Retrieve all programs for the authenticated user's organization
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: A list of programs
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 programs:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Program'
+ *       401:
+ *         description: Unauthorized - Invalid or missing token
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Unauthorized
+ *       500:
+ *         description: Server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Terjadi kesalahan pada server
+ */
 export async function GET() {
   try {
     // Verify authentication
@@ -73,6 +115,90 @@ export async function GET() {
   }
 }
 
+/**
+ * @swagger
+ * /api/programs:
+ *   post:
+ *     summary: Create a new program
+ *     tags: [Programs]
+ *     description: Create a new program for the authenticated user's organization
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - title
+ *               - description
+ *               - start_date
+ *               - end_date
+ *             properties:
+ *               title:
+ *                 type: string
+ *                 description: Program title
+ *               description:
+ *                 type: string
+ *                 description: Program description
+ *               status:
+ *                 type: string
+ *                 enum: [planned, in_progress, completed, cancelled]
+ *                 default: planned
+ *                 description: Program status
+ *               start_date:
+ *                 type: string
+ *                 format: date
+ *                 description: Program start date
+ *               end_date:
+ *                 type: string
+ *                 format: date
+ *                 description: Program end date
+ *     responses:
+ *       201:
+ *         description: Program created successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Program berhasil dibuat
+ *                 program:
+ *                   $ref: '#/components/schemas/Program'
+ *       400:
+ *         description: Invalid input data
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Data program tidak lengkap
+ *       401:
+ *         description: Unauthorized - Invalid or missing token
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Unauthorized
+ *       500:
+ *         description: Server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: Terjadi kesalahan pada server
+ */
 export async function POST(request: NextRequest) {
   try {
     // Verify authentication

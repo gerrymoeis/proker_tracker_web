@@ -2,6 +2,66 @@ import { NextResponse } from 'next/server';
 import { executeQuery } from '@/lib/db';
 import { verifyAuth } from '@/lib/api-auth';
 
+/**
+ * @swagger
+ * /api/members/create:
+ *   post:
+ *     summary: Create a new member
+ *     tags: [Members]
+ *     description: Create a new member with the provided information
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *               - email
+ *               - password
+ *               - role
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 description: The name of the member
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 description: The email of the member
+ *               password:
+ *                 type: string
+ *                 format: password
+ *                 description: The password for the member account
+ *               role:
+ *                 type: string
+ *                 description: The role of the member in the organization
+ *     responses:
+ *       201:
+ *         description: Member created successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                 message:
+ *                   type: string
+ *                 userId:
+ *                   type: integer
+ *       400:
+ *         description: Bad request - Invalid input data
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ */
 export async function POST(request: Request) {
   try {
     // Verify authentication
