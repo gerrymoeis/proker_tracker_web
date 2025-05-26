@@ -138,7 +138,7 @@ export default function TaskComments({ taskId }: TaskCommentsProps) {
   // Load comments on component mount
   useEffect(() => {
     fetchComments();
-  }, [taskId]);
+  }, [taskId, fetchComments]);
 
   return (
     <div className="space-y-6">

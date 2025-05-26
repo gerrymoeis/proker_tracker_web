@@ -106,10 +106,10 @@ export default function MembersPage() {
     }
     
     setFilteredMembers(result);
-  }, [searchQuery, activeTab, members]);
+  }, [searchQuery, activeTab, members, mockMembers]);
 
   // Get unique departments for tabs
-  const departments = [...new Set(members.map(member => member.department_id))].map(id => {
+  const departments = Array.from(new Set(members.map(member => member.department_id))).map(id => {
     const dept = members.find(m => m.department_id === id);
     return {
       id,

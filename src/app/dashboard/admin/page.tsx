@@ -87,7 +87,7 @@ export default function AdminPage() {
       // Redirect non-admin users
       router.push('/dashboard');
     }
-  }, [isAuthenticated, isAdmin, isLoading]);
+  }, [isAuthenticated, isAdmin, isLoading, fetchMigrations, router]);
 
   // Loading state
   if (isLoading) {

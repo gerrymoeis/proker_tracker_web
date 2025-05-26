@@ -29,7 +29,7 @@ export default function PrivacyPolicyPage() {
           </CardHeader>
           <CardContent className="prose prose-invert max-w-none">
             <p>
-              Proker Tracker ("kami", "kita", atau "aplikasi kami") berkomitmen untuk melindungi privasi Anda. 
+              Proker Tracker (&quot;kami&quot;, &quot;kita&quot;, atau &quot;aplikasi kami&quot;) berkomitmen untuk melindungi privasi Anda. 
               Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi 
               yang Anda berikan saat menggunakan aplikasi kami.
             </p>

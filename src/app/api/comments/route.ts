@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { executeQuery } from '@/lib/db';
-import { verifyJwtToken } from '@/lib/auth/auth';
+import { verifyJwtToken } from '@/lib/auth/auth-utils';
 import { cookies } from 'next/headers';
 
 export async function GET(request: Request) {
@@ -59,7 +59,7 @@ export async function POST(request: Request) {
     }
 
     // Insert the comment
-    const result = await executeQuery(
+    const result = await executeQuery<{ insertId: number }>(
       `INSERT INTO comments (task_id, user_id, content, created_at, updated_at)
        VALUES (?, ?, ?, NOW(), NOW())`,
       [taskId, user.id, content]

@@ -47,18 +47,18 @@ export default function TermsPage() {
           <CardContent className="prose prose-invert max-w-none">
             <ul>
               <li>
-                <strong>"Aplikasi"</strong> merujuk pada Proker Tracker, platform manajemen program kerja untuk 
+                <strong>&quot;Aplikasi&quot;</strong> merujuk pada Proker Tracker, platform manajemen program kerja untuk 
                 organisasi mahasiswa.
               </li>
               <li>
-                <strong>"Pengguna"</strong> merujuk pada individu yang mengakses atau menggunakan Aplikasi.
+                <strong>&quot;Pengguna&quot;</strong> merujuk pada individu yang mengakses atau menggunakan Aplikasi.
               </li>
               <li>
-                <strong>"Konten"</strong> merujuk pada semua informasi, data, teks, gambar, grafik, atau materi lain 
+                <strong>&quot;Konten&quot;</strong> merujuk pada semua informasi, data, teks, gambar, grafik, atau materi lain 
                 yang diunggah, diposting, atau disediakan oleh Pengguna melalui Aplikasi.
               </li>
               <li>
-                <strong>"Organisasi"</strong> merujuk pada entitas yang didaftarkan oleh Pengguna di Aplikasi.
+                <strong>&quot;Organisasi&quot;</strong> merujuk pada entitas yang didaftarkan oleh Pengguna di Aplikasi.
               </li>
             </ul>
           </CardContent>

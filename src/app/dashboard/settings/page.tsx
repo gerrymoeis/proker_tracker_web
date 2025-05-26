@@ -362,7 +362,7 @@ export default function SettingsPage() {
                 <CardContent className="space-y-4">
                   <div className="flex flex-col items-center space-y-4 mb-6">
                     <Avatar className="h-24 w-24">
-                      <AvatarImage src={user?.avatar || ''} />
+                      <AvatarImage src={user?.profile_image || ''} />
                       <AvatarFallback>{user?.name?.charAt(0) || 'U'}</AvatarFallback>
                     </Avatar>
                     <Button variant="outline" size="sm">
