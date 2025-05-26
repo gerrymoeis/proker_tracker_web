@@ -1,27 +1,128 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind Directives */
+/* purgecss start ignore */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/* purgecss end ignore */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --foreground-rgb: 74, 85, 104;
+  --background-start-rgb: 245, 247, 250;
   --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 10, 36, 99;
+    --background-end-rgb: 15, 82, 186;
   }
 }
 
+@layer base {
+  :root {
+    /* Base colors */
+    --background: 220 33% 98%;
+    --foreground: 220 20% 35%;
+    
+    /* Card */
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 35%;
+    
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 35%;
+    
+    /* Primary - Biru Primer: #0F52BA */
+    --primary: 218 85% 38%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary - Biru Sekunder: #1E88E5 */
+    --secondary: 207 84% 51%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Muted - Abu-abu Terang: #F5F7FA */
+    --muted: 220 20% 97%;
+    --muted-foreground: 220 20% 45%;
+    
+    /* Accent - Biru Tersier: #64B5F6 */
+    --accent: 206 93% 67%;
+    --accent-foreground: 220 20% 35%;
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Border & Input */
+    --border: 220 13% 90%;
+    --input: 220 13% 90%;
+    --ring: 218 85% 38%;
+    
+    /* Chart colors */
+    --chart-1: 218 85% 38%;
+    --chart-2: 207 84% 51%;
+    --chart-3: 206 93% 67%;
+    --chart-4: 222 71% 33%;
+    --chart-5: 220 20% 35%;
+    
+    --radius: 0.5rem;
+  }
+  .dark {
+    /* Base colors - Navy: #0A2463 */
+    --background: 222 82% 21%;
+    --foreground: 0 0% 100%;
+    
+    /* Card */
+    --card: 222 71% 33%;
+    --card-foreground: 0 0% 100%;
+    
+    /* Popover */
+    --popover: 222 71% 33%;
+    --popover-foreground: 0 0% 100%;
+    
+    /* Primary - Biru Primer: #0F52BA */
+    --primary: 218 85% 38%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary - Biru Sekunder: #1E88E5 */
+    --secondary: 207 84% 51%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Muted - darker version of Navy */
+    --muted: 222 82% 15%;
+    --muted-foreground: 220 20% 80%;
+    
+    /* Accent - Biru Tersier: #64B5F6 */
+    --accent: 206 93% 67%;
+    --accent-foreground: 222 82% 21%;
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Border & Input */
+    --border: 222 71% 40%;
+    --input: 222 71% 40%;
+    --ring: 206 93% 67%;
+    
+    /* Chart colors */
+    --chart-1: 218 85% 38%;
+    --chart-2: 207 84% 51%;
+    --chart-3: 206 93% 67%;
+    --chart-4: 222 71% 33%;
+    --chart-5: 220 20% 80%;
+  }
+}
+
+
+
+/* Base styles */
+* {
+  border-color: hsl(var(--border));
+}
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
 }
