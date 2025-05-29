@@ -1,0 +1,268 @@
+
+    <!DOCTYPE html>
+    <html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Laporan Ringkasan Pengujian Proker Tracker</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .container {
+                max-width: 1000px;
+                margin: 0 auto;
+                background: #f9f9f9;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+            h1, h2, h3 {
+                color: #2c3e50;
+            }
+            .header {
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #eee;
+            }
+            .summary {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                flex-wrap: wrap;
+            }
+            .summary-item {
+                flex: 1;
+                min-width: 200px;
+                padding: 15px;
+                margin: 5px;
+                border-radius: 5px;
+                text-align: center;
+            }
+            .total {
+                background-color: #e9ecef;
+            }
+            .success {
+                background-color: #d4edda;
+                color: #155724;
+            }
+            .failure {
+                background-color: #f8d7da;
+                color: #721c24;
+            }
+            .error {
+                background-color: #fff3cd;
+                color: #856404;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+            th, td {
+                padding: 12px 15px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            tr:hover {
+                background-color: #f5f5f5;
+            }
+            .status-cell {
+                font-weight: bold;
+                text-align: center;
+            }
+            .status-BERHASIL {
+                color: #155724;
+            }
+            .status-GAGAL {
+                color: #721c24;
+            }
+            .status-ERROR {
+                color: #856404;
+            }
+            .details {
+                margin-top: 10px;
+                padding: 10px;
+                background-color: #f8f9fa;
+                border-radius: 5px;
+                white-space: pre-wrap;
+                font-family: monospace;
+                font-size: 14px;
+                max-height: 200px;
+                overflow-y: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Laporan Ringkasan Pengujian Proker Tracker</h1>
+                <p>
+                    <strong>Waktu Mulai:</strong> 2025-05-28 11:31:24<br>
+                    <strong>Waktu Selesai:</strong> 2025-05-28 11:32:30<br>
+                    <strong>Durasi Total:</strong> 65.70 detik
+                </p>
+            </div>
+            
+            <h2>Ringkasan</h2>
+            <div class="summary">
+                <div class="summary-item total">
+                    <h3>Total Pengujian</h3>
+                    <p>4</p>
+                </div>
+                <div class="summary-item success">
+                    <h3>Berhasil</h3>
+                    <p>4</p>
+                </div>
+                <div class="summary-item failure">
+                    <h3>Gagal</h3>
+                    <p>0</p>
+                </div>
+                <div class="summary-item error">
+                    <h3>Error</h3>
+                    <p>0</p>
+                </div>
+            </div>
+            
+            <h2>Detail Hasil Pengujian</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Skrip Pengujian</th>
+                        <th>Status</th>
+                        <th>Durasi (detik)</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+    
+                    <tr>
+                        <td>1</td>
+                        <td>test_login_berhasil.py</td>
+                        <td class="status-cell status-BERHASIL">BERHASIL</td>
+                        <td>15.44</td>
+                        <td>
+                            <details>
+                                <summary>Lihat Detail</summary>
+                                <div class="details">
+                                    <strong>Output:</strong>
+                                    Memulai pengujian login...
+Langkah 1: Navigasi ke halaman login...
+Langkah 2: Memasukkan email...
+Langkah 3: Memasukkan password...
+Langkah 4: Mengklik tombol login...
+Login berhasil. Diarahkan ke dashboard.
+Laporan pengujian dibuat: test-results/login-test-report-20250528_113139.html
+
+                                    
+                                    
+                                </div>
+                            </details>
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td>2</td>
+                        <td>test_login_gagal.py</td>
+                        <td class="status-cell status-BERHASIL">BERHASIL</td>
+                        <td>9.51</td>
+                        <td>
+                            <details>
+                                <summary>Lihat Detail</summary>
+                                <div class="details">
+                                    <strong>Output:</strong>
+                                    Memulai pengujian login...
+Langkah 1: Navigasi ke halaman login...
+Langkah 2: Memasukkan email...
+Langkah 3: Memasukkan password...
+Langkah 4: Mengklik tombol login...
+Login gagal. Pesan error: Email atau password salah
+Laporan pengujian dibuat: test-results/login-test-report-20250528_113149.html
+
+                                    
+                                    
+                                </div>
+                            </details>
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td>3</td>
+                        <td>test_dashboard_sederhana.py</td>
+                        <td class="status-cell status-BERHASIL">BERHASIL</td>
+                        <td>5.31</td>
+                        <td>
+                            <details>
+                                <summary>Lihat Detail</summary>
+                                <div class="details">
+                                    <strong>Output:</strong>
+                                    Memulai pengujian dashboard...
+Langkah 1: Login terlebih dahulu...
+Error selama pengujian dashboard: Page.evaluate() takes from 2 to 3 positional arguments but 4 were given
+Laporan pengujian dibuat: test-results/dashboard-test-report-20250528_113154.html
+
+                                    
+                                    
+                                </div>
+                            </details>
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td>4</td>
+                        <td>test_tambah_proker.py</td>
+                        <td class="status-cell status-BERHASIL">BERHASIL</td>
+                        <td>35.44</td>
+                        <td>
+                            <details>
+                                <summary>Lihat Detail</summary>
+                                <div class="details">
+                                    <strong>Output:</strong>
+                                    Memulai pengujian tambah program kerja...
+Langkah 1: Login terlebih dahulu...
+Login berhasil, diarahkan ke dashboard.
+Langkah 2: Navigasi ke halaman tambah tugas baru...
+Navigasi langsung ke halaman tambah tugas
+Langkah 3: Mengisi form tambah tugas...
+Mengisi Nama Tugas: Tugas Test 211
+Mengisi Deskripsi: Ini adalah deskripsi tugas test 211 yang dibuat secara otomatis oleh pengujian.
+Tidak dapat menemukan dropdown program
+Tombol submit ditemukan dengan selector: button[type='submit']
+Tidak dapat menemukan date picker
+Tidak dapat menemukan dropdown penanggung jawab
+Error saat highlight elemen: Page.evaluate: SyntaxError: Failed to execute 'querySelector' on 'Document': 'button.date-picker-button, button:has-text('Pilih tanggal')' is not a valid selector.
+    at eval (eval at evaluate (:313:29), <anonymous>:2:42)
+    at UtilityScript.evaluate (<anonymous>:320:18)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+Tidak dapat menemukan tanggal dalam date picker
+Tidak dapat menemukan dropdown prioritas
+Langkah 4: Submit form tambah program kerja...
+Tombol submit ditemukan dengan selector: button[type='submit']
+Langkah 5: Verifikasi hasil submit...
+Pesan error ditemukan: Program diperlukan
+Laporan pengujian dibuat: test-results/tambah-proker-test-report-20250528_113230.html
+
+                                    
+                                    
+                                </div>
+                            </details>
+                        </td>
+                    </tr>
+        
+                </tbody>
+            </table>
+            
+            <h2>Laporan Detail</h2>
+            <p>Laporan detail untuk setiap pengujian tersedia di direktori <code>test-results</code>.</p>
+        </div>
+    </body>
+    </html>
+    

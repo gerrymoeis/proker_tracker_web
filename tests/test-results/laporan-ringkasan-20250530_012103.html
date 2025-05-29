@@ -1,0 +1,523 @@
+
+    <!DOCTYPE html>
+    <html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Laporan Ringkasan Pengujian Proker Tracker</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .container {
+                max-width: 1000px;
+                margin: 0 auto;
+                background: #f9f9f9;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+            h1, h2, h3 {
+                color: #2c3e50;
+            }
+            .header {
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #eee;
+            }
+            .summary {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                flex-wrap: wrap;
+            }
+            .summary-item {
+                flex: 1;
+                min-width: 200px;
+                padding: 15px;
+                margin: 5px;
+                border-radius: 5px;
+                text-align: center;
+            }
+            .total {
+                background-color: #e9ecef;
+            }
+            .success {
+                background-color: #d4edda;
+                color: #155724;
+            }
+            .failure {
+                background-color: #f8d7da;
+                color: #721c24;
+            }
+            .error {
+                background-color: #fff3cd;
+                color: #856404;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+            th, td {
+                padding: 12px 15px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            tr:hover {
+                background-color: #f5f5f5;
+            }
+            .status-cell {
+                font-weight: bold;
+                text-align: center;
+            }
+            .status-BERHASIL {
+                color: #155724;
+            }
+            .status-GAGAL {
+                color: #721c24;
+            }
+            .status-ERROR {
+                color: #856404;
+            }
+            .details {
+                margin-top: 10px;
+                padding: 10px;
+                background-color: #f8f9fa;
+                border-radius: 5px;
+                white-space: pre-wrap;
+                font-family: monospace;
+                font-size: 14px;
+                max-height: 200px;
+                overflow-y: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Laporan Ringkasan Pengujian Proker Tracker</h1>
+                <p>
+                    <strong>Waktu Mulai:</strong> 2025-05-30 01:16:16<br>
+                    <strong>Waktu Selesai:</strong> 2025-05-30 01:21:03<br>
+                    <strong>Durasi Total:</strong> 286.95 detik
+                </p>
+            </div>
+            
+            <h2>Ringkasan</h2>
+            <div class="summary">
+                <div class="summary-item total">
+                    <h3>Total Pengujian</h3>
+                    <p>10</p>
+                </div>
+                <div class="summary-item success">
+                    <h3>Berhasil</h3>
+                    <p>10</p>
+                </div>
+                <div class="summary-item failure">
+                    <h3>Gagal</h3>
+                    <p>0</p>
+                </div>
+                <div class="summary-item error">
+                    <h3>Error</h3>
+                    <p>0</p>
+                </div>
+            </div>
+            
+            <h2>Detail Hasil Pengujian</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Skrip Pengujian</th>
+                        <th>Status</th>
+                        <th>Durasi (detik)</th>
+                        <th>Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+    
+                    <tr>
+                        <td>1</td>
+                        <td>test_login_berhasil.py</td>
+                        <td class="status-cell status-BERHASIL">BERHASIL</td>
+                        <td>7.45</td>
+                        <td>
+                            <details>
+                                <summary>Lihat Detail</summary>
+                                <div class="details">
+                                    <strong>Output:</strong>
+                                    Memulai pengujian login...
+Langkah 1: Navigasi ke halaman login...
+Langkah 2: Memasukkan email...
+Langkah 3: Memasukkan password...
+Langkah 4: Mengklik tombol login...
+Login berhasil. Diarahkan ke dashboard.
+Laporan pengujian dibuat: test-results/login-test-report-20250530_011623.html
+
+                                    
+                                    
+                                </div>
+                            </details>
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td>2</td>
+                        <td>test_login_gagal.py</td>
+                        <td class="status-cell status-BERHASIL">BERHASIL</td>
+                        <td>5.30</td>
+                        <td>
+                            <details>
+                                <summary>Lihat Detail</summary>
+                                <div class="details">
+                                    <strong>Output:</strong>
+                                    Memulai pengujian login...
+Langkah 1: Navigasi ke halaman login...
+Langkah 2: Memasukkan email...
+Langkah 3: Memasukkan password...
+Langkah 4: Mengklik tombol login...
+Login gagal. Pesan error: Email atau password salah
+Laporan pengujian dibuat: test-results/login-test-report-20250530_011628.html
+
+                                    
+                                    
+                                </div>
+                            </details>
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td>3</td>
+                        <td>test_register_berhasil.py</td>
+                        <td class="status-cell status-BERHASIL">BERHASIL</td>
+                        <td>26.64</td>
+                        <td>
+                            <details>
+                                <summary>Lihat Detail</summary>
+                                <div class="details">
+                                    <strong>Output:</strong>
+                                    Memulai pengujian registrasi berhasil...
+Email pengujian: test8219@example.com
+Password pengujian: password123456
+Nama pengujian: Pengguna Test 8219
+Langkah 1: Navigasi ke halaman registrasi...
+Halaman registrasi berhasil dimuat
+Langkah 2: Isi form registrasi dan submit...
+Mengisi nama: Pengguna Test 8219
+Mengisi email: test8219@example.com
+Mengisi password: password123456
+Mengisi konfirmasi password
+Menggunakan organisasi default: Himafortic
+Tombol daftar diklik
+URL setelah registrasi: http://localhost:3000/login?returnUrl=%2Fdashboard
+Registrasi berhasil: Diarahkan ke halaman login
+Langkah 3: Login dengan kredensial yang baru dibuat...
+Mengisi email login: test8219@example.com
+Mengisi password login: password123456
+Tombol login diklik
+URL setelah login: http://localhost:3000/dashboard
+Login berhasil: Diarahkan ke dashboard
+Elemen nama pengguna tidak ditemukan di dashboard
+Pengujian registrasi dan login berhasil
+Laporan pengujian dibuat: test-results/register-berhasil-test-report-20250530_011655.html
+
+                                    
+                                    
+                                </div>
+                            </details>
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td>4</td>
+                        <td>test_register_gagal.py</td>
+                        <td class="status-cell status-BERHASIL">BERHASIL</td>
+                        <td>28.48</td>
+                        <td>
+                            <details>
+                                <summary>Lihat Detail</summary>
+                                <div class="details">
+                                    <strong>Output:</strong>
+                                    Memulai pengujian registrasi gagal...
+Langkah 1: Navigasi ke halaman registrasi...
+Halaman registrasi berhasil dimuat
+Langkah 2: Pengujian registrasi dengan email yang sudah terdaftar...
+Tombol daftar diklik untuk pengujian email terdaftar
+Pesan error ditemukan: Email sudah terdaftar
+Pengujian email terdaftar berhasil: Pesan error yang diharapkan muncul
+Langkah 3: Pengujian registrasi dengan password terlalu pendek...
+Tombol daftar diklik untuk pengujian password pendek
+Pesan error password ditemukan: Password minimal 8 karakter
+Pengujian password pendek berhasil: Pesan error yang diharapkan muncul
+Laporan pengujian dibuat: test-results/register-gagal-test-report-20250530_011723.html
+
+                                    
+                                    
+                                </div>
+                            </details>
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td>5</td>
+                        <td>test_tampilan_dashboard.py</td>
+                        <td class="status-cell status-BERHASIL">BERHASIL</td>
+                        <td>11.41</td>
+                        <td>
+                            <details>
+                                <summary>Lihat Detail</summary>
+                                <div class="details">
+                                    <strong>Output:</strong>
+                                    Memulai pengujian tampilan dashboard...
+Langkah 1: Login terlebih dahulu...
+Login berhasil, diarahkan ke dashboard.
+Langkah 2: Verifikasi tampilan umum dashboard...
+Judul halaman: Proker Tracker - Aplikasi Manajemen Program Kerja untuk Organisasi Mahasiswa
+[PASS] Header Dashboard terlihat
+[PASS] Tombol Program Baru terlihat
+[PASS] Tombol Tugas Baru terlihat
+Langkah 3: Verifikasi kartu statistik...
+[PASS] Kartu statistik terlihat
+Langkah 4: Verifikasi bagian Tugas Mendatang...
+[PASS] Judul 'Tugas Mendatang' terlihat
+[PASS] Konten bagian Tugas Mendatang terlihat
+Langkah 5: Verifikasi bagian Program Kerja Terbaru...
+[PASS] Judul 'Program Kerja Terbaru' terlihat
+[PASS] Konten bagian Program Kerja Terbaru terlihat
+Langkah 6: Verifikasi bagian Kalender...
+[PASS] Judul 'Kalender' terlihat
+[PASS] Konten bagian Kalender terlihat
+Langkah 7: Verifikasi navigasi sidebar...
+[FAIL] Sidebar navigasi tidak terlihat
+Langkah 8: Cek responsivitas dashboard...
+Pengujian tampilan dashboard selesai!
+Laporan pengujian telah dibuat: test-results/tampilan-dashboard-test-report-20250530_011735.html
+
+                                    
+                                    
+                                </div>
+                            </details>
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td>6</td>
+                        <td>test_buat_proker.py</td>
+                        <td class="status-cell status-BERHASIL">BERHASIL</td>
+                        <td>28.78</td>
+                        <td>
+                            <details>
+                                <summary>Lihat Detail</summary>
+                                <div class="details">
+                                    <strong>Output:</strong>
+                                    Memulai pengujian pembuatan program kerja...
+Langkah 1: Login terlebih dahulu...
+Login berhasil, diarahkan ke dashboard.
+Langkah 2: Navigasi ke halaman pembuatan program kerja...
+Halaman pembuatan program kerja berhasil dimuat.
+Langkah 3: Mengisi form pembuatan program kerja...
+Mengisi Nama Program: Program Test 878
+Mengisi Deskripsi: Ini adalah deskripsi program test 878 yang dibuat secara otomatis oleh pengujian.
+Mengisi Tanggal Mulai: 2025-05-30
+Mengisi Tanggal Selesai: 2025-06-29
+Memilih departemen menggunakan selector: [role='option']
+Memilih penanggung jawab menggunakan selector: [role='option']
+Mengisi Anggaran: Rp 5905656
+Memilih status menggunakan selector: [role='option']:has-text('Belum Dimulai')
+Langkah 4: Submit form pembuatan program kerja...
+Tombol submit ditemukan
+Tombol submit diklik
+Error saat membuat program: Dibatalkan
+Laporan pengujian telah dibuat: test-results/buat-proker-test-report-20250530_011803.html
+
+                                    
+                                    
+                                </div>
+                            </details>
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td>7</td>
+                        <td>test_buat_tugas.py</td>
+                        <td class="status-cell status-BERHASIL">BERHASIL</td>
+                        <td>51.52</td>
+                        <td>
+                            <details>
+                                <summary>Lihat Detail</summary>
+                                <div class="details">
+                                    <strong>Output:</strong>
+                                    Memulai pengujian pembuatan tugas...
+Langkah 1: Login terlebih dahulu...
+Tombol login diklik menggunakan JavaScript
+Login berhasil, diarahkan ke dashboard.
+Langkah 2: Navigasi ke halaman pembuatan tugas...
+Langkah 3: Mengisi form pembuatan tugas...
+Mengisi Nama Tugas: Tugas Test 683
+Mengisi Deskripsi: Ini adalah deskripsi tugas test 683 yang dibuat secara otomatis oleh pengujian.
+Mengisi Tanggal Tenggat: 2025-06-06
+Memilih program menggunakan selector: [role='option']
+Memilih prioritas: Tinggi
+Memilih status: Dalam Progres
+Langkah 4: Submit form pembuatan tugas...
+Tombol submit ditemukan
+Tombol submit diklik menggunakan JavaScript
+Langkah 5: Verifikasi hasil submit...
+URL saat ini: http://localhost:3000/dashboard/tasks
+Pesan error ditemukan: 
+Berhasil diarahkan ke halaman daftar tugas: http://localhost:3000/dashboard/tasks
+Tugas baru 'Tugas Test 683' ditemukan di halaman daftar
+Laporan pengujian dibuat: test-results/buat-tugas-test-report-20250530_011855.html
+
+                                    
+                                    
+                                </div>
+                            </details>
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td>8</td>
+                        <td>test_tambah_anggota.py</td>
+                        <td class="status-cell status-BERHASIL">BERHASIL</td>
+                        <td>59.16</td>
+                        <td>
+                            <details>
+                                <summary>Lihat Detail</summary>
+                                <div class="details">
+                                    <strong>Output:</strong>
+                                    Memulai pengujian menambah anggota...
+Data pengujian: User Test 2936, usertest2936@example.com, password123
+Langkah 1: Login sebagai Ketua Himpunan...
+Mengisi email login: 23091397101@student.unesa.ac.id
+Mengisi password login
+Tombol login diklik menggunakan JavaScript
+Login berhasil, diarahkan ke dashboard
+Langkah 2: Navigasi ke halaman tambah anggota...
+Halaman tambah anggota berhasil dimuat
+Langkah 3: Isi form tambah anggota...
+Mengisi nama anggota: User Test 2936
+Mengisi email anggota: usertest2936@example.com
+Mengisi password anggota: password123
+Dropdown peran diklik
+Memilih peran: Anggota
+Dropdown departemen diklik
+Memilih departemen pertama dari daftar
+Langkah 4: Submit form tambah anggota...
+Tombol submit ditemukan
+Tombol submit diklik menggunakan JavaScript
+URL setelah submit: http://localhost:3000/dashboard/members
+Langkah 5: Verifikasi anggota baru di halaman daftar anggota...
+Mencari anggota dengan kata kunci: User Test 2936
+Anggota baru 'User Test 2936' ditemukan dengan selector has-text
+HASIL AKHIR: Anggota baru berhasil ditemukan di halaman daftar anggota
+Laporan pengujian dibuat: test-results/tambah-anggota-test-report-20250530_011954.html
+
+                                    
+                                    
+                                </div>
+                            </details>
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td>9</td>
+                        <td>test_edit_profil.py</td>
+                        <td class="status-cell status-BERHASIL">BERHASIL</td>
+                        <td>36.17</td>
+                        <td>
+                            <details>
+                                <summary>Lihat Detail</summary>
+                                <div class="details">
+                                    <strong>Output:</strong>
+                                    Memulai pengujian edit profil...
+Data pengujian: Login dengan usertest7083@example.com, ubah nama menjadi Test User 1575
+Langkah 1: Login dengan akun test...
+Mengisi email login: usertest7083@example.com
+Mengisi password login
+Tombol login diklik menggunakan JavaScript
+Login berhasil, diarahkan ke dashboard
+Langkah 2: Navigasi ke halaman profil...
+Halaman profil berhasil dimuat
+Halaman profil terverifikasi
+Langkah 3: Klik tombol Edit Profil...
+Tombol Edit Profil ditemukan
+Tombol Edit Profil diklik
+Langkah 4: Edit nama profil...
+Field nama ditemukan
+Nama asli: User Test 7083
+Mengubah nama menjadi: Test User 1575
+Langkah 5: Submit perubahan...
+Tombol Simpan Perubahan ditemukan
+Tombol Simpan Perubahan diklik
+Pesan sukses ditemukan: Profil berhasil diperbarui
+Langkah 6: Verifikasi perubahan nama...
+Nama yang ditampilkan di profil: Test User 1575
+Verifikasi berhasil: Nama berhasil diubah menjadi Test User 1575
+Langkah 7: Uji tab Keamanan untuk mengubah password...
+Tab Keamanan ditemukan
+Tab Keamanan diklik
+Form ubah password terverifikasi
+Laporan pengujian dibuat: test-results/edit-profil-test-report-20250530_012030.html
+
+                                    
+                                    
+                                </div>
+                            </details>
+                        </td>
+                    </tr>
+        
+                    <tr>
+                        <td>10</td>
+                        <td>test_ubah_password.py</td>
+                        <td class="status-cell status-BERHASIL">BERHASIL</td>
+                        <td>32.04</td>
+                        <td>
+                            <details>
+                                <summary>Lihat Detail</summary>
+                                <div class="details">
+                                    <strong>Output:</strong>
+                                    Memulai pengujian ubah password...
+Data pengujian: Email test@testing.com, Password baru newpw2798
+Langkah 1: Buka halaman forgot password...
+Halaman forgot password berhasil dimuat
+Langkah 2: Masukkan email untuk verifikasi...
+Mengisi email: test@testing.com
+Tombol Lanjutkan diklik
+Pesan sukses ditemukan: Email ditemukan. Silakan masukkan password baru Anda.
+Langkah 3: Masukkan password baru...
+Mengisi password baru: newpw2798
+Mengisi konfirmasi password baru
+Tombol Reset Password diklik
+Pesan sukses ditemukan: Password berhasil diubah. Anda akan diarahkan ke halaman login.
+Langkah 4: Login dengan password baru...
+Mengisi email login: test@testing.com
+Mengisi password baru
+Tombol Login diklik
+Login berhasil, diarahkan ke dashboard
+Laporan pengujian dibuat: test-results/ubah-password-test-report-20250530_012103.html
+
+                                    
+                                    
+                                </div>
+                            </details>
+                        </td>
+                    </tr>
+        
+                </tbody>
+            </table>
+            
+            <h2>Laporan Detail</h2>
+            <p>Laporan detail untuk setiap pengujian tersedia di direktori <code>test-results</code>.</p>
+        </div>
+    </body>
+    </html>
+    

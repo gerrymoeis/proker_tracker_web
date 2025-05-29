@@ -1,0 +1,194 @@
+
+    <!DOCTYPE html>
+    <html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Laporan Pengujian Tampilan Dashboard Proker Tracker</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                background: #f9f9f9;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+            h1, h2, h3 {
+                color: #2c3e50;
+            }
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #eee;
+            }
+            .status {
+                padding: 5px 10px;
+                border-radius: 3px;
+                font-weight: bold;
+            }
+            .success {
+                background-color: #d4edda;
+                color: #155724;
+            }
+            .failure {
+                background-color: #f8d7da;
+                color: #721c24;
+            }
+            .steps {
+                margin-bottom: 20px;
+            }
+            .step {
+                padding: 10px;
+                margin-bottom: 5px;
+                background-color: #f1f1f1;
+                border-left: 3px solid #2c3e50;
+            }
+            .screenshots {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 20px;
+                margin-top: 20px;
+            }
+            .screenshot {
+                border: 1px solid #ddd;
+                padding: 10px;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+            }
+            .screenshot img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 3px;
+                margin-bottom: 10px;
+            }
+            .screenshot-caption {
+                font-weight: bold;
+                text-align: center;
+            }
+            .error {
+                background-color: #f8d7da;
+                color: #721c24;
+                padding: 10px;
+                border-radius: 3px;
+                margin-top: 20px;
+            }
+            .summary {
+                margin-top: 20px;
+                padding: 15px;
+                background-color: #e9ecef;
+                border-radius: 5px;
+            }
+            .passed {
+                color: #155724;
+            }
+            .failed {
+                color: #721c24;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Laporan Pengujian Tampilan Dashboard Proker Tracker</h1>
+                <div>
+                    <span class="status success">
+                        BERHASIL
+                    </span>
+                </div>
+                <div>
+                    <h3>Tanggal & Waktu</h3>
+                    <div>2025-05-30 00:44:16</div>
+                </div>
+            </div>
+            
+            <h2>Langkah-langkah Pengujian</h2>
+            <div class="steps">
+    <div class="step">Login terlebih dahulu</div>
+<div class="step">Login berhasil, diarahkan ke dashboard</div>
+<div class="step">Verifikasi tampilan umum dashboard</div>
+<div class="step">Judul halaman: Proker Tracker - Aplikasi Manajemen Program Kerja untuk Organisasi Mahasiswa</div>
+<div class="step">[PASS] Header Dashboard terlihat</div>
+<div class="step">[PASS] Tombol Program Baru terlihat</div>
+<div class="step">[PASS] Tombol Tugas Baru terlihat</div>
+<div class="step">Verifikasi kartu statistik</div>
+<div class="step">[PASS] Kartu statistik terlihat</div>
+<div class="step">Verifikasi bagian Tugas Mendatang</div>
+<div class="step">[PASS] Judul 'Tugas Mendatang' terlihat</div>
+<div class="step">[PASS] Konten bagian Tugas Mendatang terlihat</div>
+<div class="step">Verifikasi bagian Program Kerja Terbaru</div>
+<div class="step">[PASS] Judul 'Program Kerja Terbaru' terlihat</div>
+<div class="step">[PASS] Konten bagian Program Kerja Terbaru terlihat</div>
+<div class="step">Verifikasi bagian Kalender</div>
+<div class="step">[PASS] Judul 'Kalender' terlihat</div>
+<div class="step">[PASS] Konten bagian Kalender terlihat</div>
+<div class="step">Verifikasi navigasi sidebar</div>
+<div class="step">[FAIL] Sidebar navigasi tidak terlihat</div>
+<div class="step">Cek responsivitas dashboard</div>
+<div class="step">Pengujian tampilan dashboard selesai</div>
+
+            </div>
+            
+            <h2>Ringkasan Hasil</h2>
+            <div class="summary">
+    
+                <p><span class="passed">[PASS] Berhasil:</span> 10 langkah</p>
+                <p><span class="failed">[FAIL] Gagal:</span> 1 langkah</p>
+                <p><strong>Status Akhir:</strong> BERHASIL</p>
+    
+            </div>
+            
+            <h2>Screenshot</h2>
+            <div class="screenshots">
+    
+                <div class="screenshot">
+                    <img src="../test-results/screenshots/login-page-20250530_004407.png" alt="Screenshot">
+                    <div class="screenshot-caption">Halaman Login</div>
+                </div>
+        
+                <div class="screenshot">
+                    <img src="../test-results/screenshots/dashboard-full-20250530_004414.png" alt="Screenshot">
+                    <div class="screenshot-caption">Tampilan Penuh Dashboard</div>
+                </div>
+        
+                <div class="screenshot">
+                    <img src="../test-results/screenshots/dashboard-stats-20250530_004414.png" alt="Screenshot">
+                    <div class="screenshot-caption">Kartu Statistik Dashboard</div>
+                </div>
+        
+                <div class="screenshot">
+                    <img src="../test-results/screenshots/dashboard-programs-20250530_004414.png" alt="Screenshot">
+                    <div class="screenshot-caption">Program Kerja Terbaru</div>
+                </div>
+        
+                <div class="screenshot">
+                    <img src="../test-results/screenshots/dashboard-sidebar-20250530_004414.png" alt="Screenshot">
+                    <div class="screenshot-caption">Navigasi Sidebar</div>
+                </div>
+        
+                <div class="screenshot">
+                    <img src="../test-results/screenshots/dashboard-tablet-20250530_004415.png" alt="Screenshot">
+                    <div class="screenshot-caption">Tampilan Tablet</div>
+                </div>
+        
+                <div class="screenshot">
+                    <img src="../test-results/screenshots/dashboard-mobile-20250530_004416.png" alt="Screenshot">
+                    <div class="screenshot-caption">Tampilan Mobile</div>
+                </div>
+        
+            </div>
+        </div>
+    </body>
+    </html>
+    

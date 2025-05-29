@@ -1,0 +1,26 @@
+{
+  "total": 1,
+  "passed": 0,
+  "failed": 1,
+  "skipped": 0,
+  "totalDuration": 6590,
+  "tests": [
+    {
+      "name": "Login with invalid password",
+      "status": "failure",
+      "duration": 6590,
+      "steps": [
+        "Navigate to the login page",
+        "Enter valid email",
+        "Enter invalid password",
+        "Click the login button",
+        "Verify error message is displayed"
+      ],
+      "screenshots": [],
+      "error": "VisualHelper.show_progress() missing 2 required positional arguments: 'total_steps' and 'message'"
+    }
+  ],
+  "recommendations": [
+    "Revisar la prueba 'Login with invalid password': VisualHelper.show_progress() missing 2 required positional arguments: 'total_steps' and 'message'"
+  ]
+}

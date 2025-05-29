@@ -1,0 +1,124 @@
+
+    <!DOCTYPE html>
+    <html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Laporan Pengujian Login Proker Tracker</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .container {
+                max-width: 1000px;
+                margin: 0 auto;
+                background: #f9f9f9;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+            h1, h2, h3 {
+                color: #2c3e50;
+            }
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #eee;
+            }
+            .status {
+                padding: 5px 10px;
+                border-radius: 3px;
+                font-weight: bold;
+            }
+            .success {
+                background-color: #d4edda;
+                color: #155724;
+            }
+            .failure {
+                background-color: #f8d7da;
+                color: #721c24;
+            }
+            .steps {
+                margin-bottom: 20px;
+            }
+            .step {
+                padding: 10px;
+                margin-bottom: 5px;
+                background-color: #f1f1f1;
+                border-left: 3px solid #2c3e50;
+            }
+            .screenshots {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 20px;
+                margin-top: 20px;
+            }
+            .screenshot {
+                border: 1px solid #ddd;
+                padding: 10px;
+                border-radius: 5px;
+            }
+            .screenshot img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 3px;
+            }
+            .error {
+                background-color: #f8d7da;
+                color: #721c24;
+                padding: 10px;
+                border-radius: 3px;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Laporan Pengujian Login Proker Tracker</h1>
+                <div>
+                    <span class="status success">
+                        BERHASIL
+                    </span>
+                </div>
+                <div>
+                    <h3>Tanggal & Waktu</h3>
+                    <div>2025-05-30 01:16:28</div>
+                </div>
+            </div>
+            
+            <h2>Langkah-langkah Pengujian</h2>
+            <div class="steps">
+    <div class="step">Langkah 1: Navigasi ke halaman login</div>
+<div class="step">Langkah 2: Memasukkan email</div>
+<div class="step">Langkah 3: Memasukkan password</div>
+<div class="step">Langkah 4: Mengklik tombol login</div>
+<div class="step">Langkah 5: Login gagal: Email atau password salah</div>
+
+            </div>
+            
+            <h2>Screenshot</h2>
+            <div class="screenshots">
+    
+            <div class="screenshot">
+                <h3>Screenshot 1</h3>
+                <img src="../test-results/screenshots/login-page-20250530_011626.png" alt="Screenshot 1">
+            </div>
+        
+            <div class="screenshot">
+                <h3>Screenshot 2</h3>
+                <img src="../test-results/screenshots/after-login-20250530_011628.png" alt="Screenshot 2">
+            </div>
+        
+            </div>
+        </div>
+    </body>
+    </html>
+    

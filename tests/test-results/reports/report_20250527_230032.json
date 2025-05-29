@@ -1,0 +1,26 @@
+{
+  "total": 1,
+  "passed": 0,
+  "failed": 1,
+  "skipped": 0,
+  "totalDuration": 2381,
+  "tests": [
+    {
+      "name": "Login with valid credentials",
+      "status": "failure",
+      "duration": 2381,
+      "steps": [
+        "Navigate to the login page",
+        "Enter valid email",
+        "Enter valid password",
+        "Click the login button",
+        "Verify redirection to dashboard"
+      ],
+      "screenshots": [],
+      "error": "Page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n  - navigating to \"/login\", waiting until \"load\"\n"
+    }
+  ],
+  "recommendations": [
+    "Revisar la prueba 'Login with valid credentials': Page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n  - navigating to \"/login\", waiting until \"load\"\n"
+  ]
+}
