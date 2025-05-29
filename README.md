@@ -11,8 +11,10 @@
 <p align="center">
   <a href="#fitur">Fitur</a> •
   <a href="#teknologi">Teknologi</a> •
+  <a href="#arsitektur">Arsitektur</a> •
   <a href="#instalasi">Instalasi</a> •
   <a href="#penggunaan">Penggunaan</a> •
+  <a href="#dokumentasi-api">Dokumentasi API</a> •
   <a href="#tim-pengembang">Tim Pengembang</a> •
   <a href="#lisensi">Lisensi</a>
 </p>
@@ -23,6 +25,8 @@ Proker Tracker adalah aplikasi manajemen program kerja yang dirancang khusus unt
 
 Dikembangkan sebagai bagian dari tugas Mata Kuliah Sistem Informasi Manajemen di Program Studi D4 Manajemen Informatika, Fakultas Vokasi, Universitas Negeri Surabaya.
 
+**Update Terbaru (30 Mei 2025)**: Proker Tracker kini mengimplementasikan arsitektur microservices untuk meningkatkan skalabilitas, pemeliharaan, dan ketahanan aplikasi.
+
 ## Fitur
 
 - **Manajemen Program Kerja**: Buat, kelola, dan evaluasi program kerja organisasi
@@ -32,21 +36,44 @@ Dikembangkan sebagai bagian dari tugas Mata Kuliah Sistem Informasi Manajemen di
 - **Laporan**: Hasilkan laporan untuk evaluasi program kerja
 - **Autentikasi Pengguna**: Sistem login dan registrasi yang aman
 - **Antarmuka Responsif**: Berfungsi dengan baik di desktop dan perangkat mobile
+- **Arsitektur Microservices**: Pemisahan layanan berdasarkan domain bisnis untuk skalabilitas dan pemeliharaan yang lebih baik
+- **API Terdokumentasi**: Swagger documentation untuk semua endpoint API
+- **Monitoring Service**: Dashboard untuk memantau kesehatan dan kinerja microservices
 
 ## Teknologi
 
-- **Frontend**: Next.js 13 (App Router), React, TypeScript, Tailwind CSS
-- **Backend**: Next.js API Routes, MySQL
-- **Autentikasi**: JWT (JSON Web Tokens)
+- **Frontend**: Next.js 14 (App Router), React 18, TypeScript, Tailwind CSS
+- **Backend**: Supabase (PostgreSQL, Auth, Storage, Edge Functions)
+- **API**: Next.js API Routes dengan arsitektur microservices
+- **Autentikasi**: Supabase Auth, JWT (JSON Web Tokens)
 - **Styling**: Shadcn UI, Tailwind CSS
-- **Deployment**: Netlify
+- **Deployment**: Netlify (Frontend dan API Gateway), Supabase (Backend Services)
+- **Dokumentasi API**: Swagger/OpenAPI
+- **Monitoring**: Custom Dashboard dengan Chart.js
+
+## Arsitektur
+
+Proker Tracker mengimplementasikan arsitektur microservices dengan pendekatan Domain-Driven Design (DDD) dalam struktur monorepo. Arsitektur ini memisahkan aplikasi menjadi beberapa layanan berdasarkan domain bisnis:
+
+- **Auth Service**: Menangani autentikasi dan otorisasi
+- **User Service**: Mengelola data pengguna dan profil
+- **Organization Service**: Mengelola data organisasi dan departemen
+- **Program Service**: Mengelola program kerja
+- **Task Service**: Mengelola tugas-tugas dalam program kerja
+
+Komunikasi antar service dilakukan melalui:
+- **Synchronous**: API calls melalui API Gateway
+- **Asynchronous**: Event-driven menggunakan Supabase Realtime
+
+Untuk detail lebih lanjut, lihat dokumentasi arsitektur di folder `docs/microservices/`.
 
 ## Instalasi
 
 ### Prasyarat
 
 - Node.js (versi 18.x atau lebih tinggi)
-- MySQL (versi 8.x atau lebih tinggi)
+- Akun Supabase (gratis)
+- Akun Netlify (gratis)
 
 ### Langkah-langkah
 
@@ -63,20 +90,24 @@ cd proker-tracker
 npm install
 ```
 
-3. Buat file `.env.local` di root proyek dan tambahkan variabel lingkungan berikut:
+3. Buat proyek Supabase baru di [https://supabase.com](https://supabase.com)
+
+4. Buat file `.env.local` di root proyek dan tambahkan variabel lingkungan berikut:
 
 ```
-DATABASE_URL=mysql://username:password@localhost:3306/proker_tracker_web
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 JWT_SECRET=your_jwt_secret_key
 ```
 
-4. Jalankan migrasi database (pastikan database MySQL Anda sudah berjalan)
+5. Jalankan migrasi database
 
 ```bash
-npm run migrate
+npm run supabase:migrate
 ```
 
-5. Jalankan server pengembangan
+6. Jalankan server pengembangan
 
 ```bash
 npm run dev
@@ -110,6 +141,21 @@ Buka [http://localhost:3000](http://localhost:3000) dengan browser Anda untuk me
 - Filter laporan berdasarkan departemen atau status
 - Ekspor laporan jika diperlukan
 
+### Monitoring Microservices
+
+- Akses dashboard admin untuk memantau status microservices
+- Lihat metrik performa dan kesehatan setiap service
+- Identifikasi dan atasi masalah secara cepat
+
+## Dokumentasi API
+
+Proker Tracker menyediakan API yang terdokumentasi dengan baik untuk integrasi dengan sistem lain. Dokumentasi API tersedia di:
+
+- **Swagger UI**: `/api/docs` (saat menjalankan aplikasi secara lokal)
+- **Dokumentasi Statis**: Lihat folder `docs/microservices/api-endpoints.md`
+
+Semua endpoint API menggunakan autentikasi Bearer Token dan mengembalikan respons dalam format JSON.
+
 ## Tim Pengembang
 
 Aplikasi ini dikembangkan oleh Kelompok 7, Kelas 2023E, Prodi D4 Manajemen Informatika:
@@ -136,8 +182,24 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Netlify
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Proker Tracker dioptimalkan untuk deployment di Netlify:
+
+1. Hubungkan repositori GitHub Anda ke Netlify
+2. Konfigurasi build settings:
+   - Build command: `npm run build`
+   - Publish directory: `.next`
+3. Tambahkan variabel lingkungan yang diperlukan
+4. Deploy!
+
+### Supabase
+
+1. Buat proyek Supabase baru
+2. Jalankan migrasi database menggunakan Supabase CLI
+3. Konfigurasi Row Level Security (RLS) untuk keamanan data
+4. Deploy Edge Functions jika diperlukan
+
+Untuk panduan deployment lengkap, lihat `docs/microservices/implementation-guide.md`.
