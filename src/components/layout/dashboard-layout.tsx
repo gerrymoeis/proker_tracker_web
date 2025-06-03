@@ -11,12 +11,15 @@ import {
   Calendar,
   Users,
   FileText,
+  FileArchive,
+  Calculator,
   Settings,
   Menu,
   X,
   LogOut,
   User,
-  ChevronDown
+  ChevronDown,
+  BarChart
 } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
@@ -41,14 +44,16 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
     { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
     { name: 'Program Kerja', href: '/dashboard/programs', icon: Calendar },
     { name: 'Tugas', href: '/dashboard/tasks', icon: FileText },
-    { name: 'Laporan', href: '/dashboard/reports', icon: Users },
+    { name: 'Laporan', href: '/dashboard/reports', icon: FileArchive },
     { name: 'Anggota', href: '/dashboard/members', icon: Users },
+    { name: 'Matrik', href: '/metrics', icon: Calculator },
     { name: 'Pengaturan', href: '/dashboard/settings', icon: Settings },
   ];
   
   // Admin-only navigation items
   const adminNavigation = [
     { name: 'Admin Panel', href: '/dashboard/admin', icon: Settings },
+    { name: 'Metrics', href: '/metrics', icon: BarChart },
   ];
   
   // Combine navigation based on user role

@@ -5,6 +5,9 @@ import Script from 'next/script';
 import { defaultMetadata } from '@/lib/metadata';
 import './globals.css'
 
+// Inisialisasi sistem metrik API
+import '@/lib/metrics-init';
+
 // Import fonts as per design brief
 const inter = Inter({ 
   subsets: ['latin'],
