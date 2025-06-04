@@ -68,7 +68,7 @@ export async function GET() {
     const organization_name = decoded.organization_name || 'default';
     
     // Get the organization_id based on the organization_name
-    const [orgResult] = await executeQuery<any[]>(
+    const [orgResult] = await executeQuery( as any[]
       `SELECT id FROM organizations WHERE name = ?`,
       [organization_name]
     );
@@ -78,7 +78,7 @@ export async function GET() {
     
     console.log('Programs API GET: Using organization_id:', organization_id);
     
-    const programs = await executeQuery<any[]>(`
+    const programs = await executeQuery( as any[]`
       SELECT 
         p.id, 
         p.name, 
@@ -351,7 +351,7 @@ export async function POST(request: NextRequest) {
     const organization_name = decoded.organization_name || 'default';
     
     // Get the organization_id based on the organization_name
-    const [orgResult] = await executeQuery<any[]>(
+    const [orgResult] = await executeQuery( as any[]
       `SELECT id FROM organizations WHERE name = ?`,
       [organization_name]
     );
@@ -395,7 +395,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Get the newly created program
-    const programs = await executeQuery<any[]>(
+    const programs = await executeQuery( as any[]
       `SELECT 
         p.id, 
         p.name, 
@@ -458,3 +458,6 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
+
+

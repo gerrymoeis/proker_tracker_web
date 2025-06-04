@@ -1,0 +1,203 @@
+
+    <!DOCTYPE html>
+    <html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Laporan Pengujian Pembuatan Tugas</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            h1 {
+                color: #2c3e50;
+                border-bottom: 2px solid #3498db;
+                padding-bottom: 10px;
+            }
+            h2 {
+                color: #2980b9;
+                margin-top: 30px;
+            }
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .status {
+                padding: 15px;
+                margin: 20px 0;
+                border-radius: 5px;
+            }
+            .success {
+                background-color: #d4edda;
+                color: #155724;
+                border: 1px solid #c3e6cb;
+            }
+            .error {
+                background-color: #f8d7da;
+                color: #721c24;
+                border: 1px solid #f5c6cb;
+            }
+            .step {
+                background-color: #f8f9fa;
+                padding: 10px 15px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                border-left: 4px solid #6c757d;
+            }
+            .step-success {
+                border-left-color: #28a745;
+            }
+            .step-error {
+                border-left-color: #dc3545;
+            }
+            .screenshot {
+                margin: 20px 0;
+                text-align: center;
+            }
+            .screenshot img {
+                max-width: 100%;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+            }
+            th, td {
+                padding: 12px 15px;
+                border: 1px solid #ddd;
+                text-align: left;
+            }
+            th {
+                background-color: #f8f9fa;
+            }
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Laporan Pengujian Pembuatan Tugas</h1>
+            <p>Tanggal & Waktu: 2025-06-03 23:02:00</p>
+            
+            <div class="status success">
+                <strong>Status: BERHASIL</strong>
+            </div>
+            
+            <h2>Langkah-langkah Pengujian</h2>
+            <div class="steps">
+    
+                <div class="step">
+                    <strong>1.</strong> Login terlebih dahulu
+                </div>
+        
+                <div class="step">
+                    <strong>2.</strong> Login berhasil, diarahkan ke dashboard.
+                </div>
+        
+                <div class="step">
+                    <strong>3.</strong> Navigasi ke halaman pembuatan tugas
+                </div>
+        
+                <div class="step">
+                    <strong>4.</strong> Mengisi form pembuatan tugas
+                </div>
+        
+                <div class="step">
+                    <strong>5.</strong> Mengisi Nama Tugas: Tugas Test 100
+                </div>
+        
+                <div class="step">
+                    <strong>6.</strong> Mengisi Deskripsi: Ini adalah deskripsi tugas test 100 yang dibuat secara otomatis oleh pengujian.
+                </div>
+        
+                <div class="step">
+                    <strong>7.</strong> Mengisi Tanggal Tenggat: 2025-06-10
+                </div>
+        
+                <div class="step">
+                    <strong>8.</strong> Memilih program menggunakan selector: [role='option']
+                </div>
+        
+                <div class="step">
+                    <strong>9.</strong> Memilih prioritas: Tinggi
+                </div>
+        
+                <div class="step">
+                    <strong>10.</strong> Memilih status: Dalam Progres
+                </div>
+        
+                <div class="step">
+                    <strong>11.</strong> Submit form pembuatan tugas
+                </div>
+        
+                <div class="step">
+                    <strong>12.</strong> Tombol submit ditemukan
+                </div>
+        
+                <div class="step">
+                    <strong>13.</strong> Tombol submit diklik menggunakan JavaScript
+                </div>
+        
+                <div class="step">
+                    <strong>14.</strong> Verifikasi hasil submit
+                </div>
+        
+                <div class="step">
+                    <strong>15.</strong> URL saat ini: http://localhost:3000/dashboard/tasks
+                </div>
+        
+                <div class="step">
+                    <strong>16.</strong> Pesan error ditemukan: 
+                </div>
+        
+                <div class="step">
+                    <strong>17.</strong> Berhasil diarahkan ke halaman daftar tugas: http://localhost:3000/dashboard/tasks
+                </div>
+        
+                <div class="step">
+                    <strong>18.</strong> Tugas baru 'Tugas Test 100' ditemukan di halaman daftar
+                </div>
+        
+            </div>
+            
+            <h2>Screenshot</h2>
+            <div class="screenshots">
+    
+                <div class="screenshot">
+                    <h3>Screenshot 1</h3>
+                    <img src="screenshots\login_0.png" alt="Screenshot 1">
+                </div>
+        
+                <div class="screenshot">
+                    <h3>Screenshot 2</h3>
+                    <img src="screenshots\buat_tugas_1.png" alt="Screenshot 2">
+                </div>
+        
+                <div class="screenshot">
+                    <h3>Screenshot 3</h3>
+                    <img src="screenshots\pre_submit_2.png" alt="Screenshot 3">
+                </div>
+        
+                <div class="screenshot">
+                    <h3>Screenshot 4</h3>
+                    <img src="screenshots\submit_result_3.png" alt="Screenshot 4">
+                </div>
+        
+                <div class="screenshot">
+                    <h3>Screenshot 5</h3>
+                    <img src="screenshots\tasks_list_4.png" alt="Screenshot 5">
+                </div>
+        
+            </div>
+        </div>
+    </body>
+    </html>
+    
