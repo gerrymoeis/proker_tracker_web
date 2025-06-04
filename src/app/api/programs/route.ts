@@ -68,17 +68,15 @@ export async function GET() {
     const organization_name = decoded.organization_name || 'default';
     
     // Get the organization_id based on the organization_name
-    const [orgResult] = await executeQuery( as any[]
-      `SELECT id FROM organizations WHERE name = ?`,
-      [organization_name]
-    );
+    const orgQueryGet = `SELECT id FROM organizations WHERE name = ?`;
+    const [orgResult] = await executeQuery(orgQueryGet, [organization_name]);
     
     // Use the first organization's ID or a default value if not found
     const organization_id = orgResult && orgResult.length > 0 ? orgResult[0].id : 1;
     
     console.log('Programs API GET: Using organization_id:', organization_id);
     
-    const programs = await executeQuery( as any[]`
+    const programs = await executeQuery(`
       SELECT 
         p.id, 
         p.name, 
@@ -351,10 +349,8 @@ export async function POST(request: NextRequest) {
     const organization_name = decoded.organization_name || 'default';
     
     // Get the organization_id based on the organization_name
-    const [orgResult] = await executeQuery( as any[]
-      `SELECT id FROM organizations WHERE name = ?`,
-      [organization_name]
-    );
+    const orgQueryPost = `SELECT id FROM organizations WHERE name = ?`;
+    const [orgResult] = await executeQuery(orgQueryPost, [organization_name]);
     
     // Use the first organization's ID or a default value if not found
     const organization_id = orgResult && orgResult.length > 0 ? orgResult[0].id : 1;
@@ -362,7 +358,7 @@ export async function POST(request: NextRequest) {
     console.log('Programs API: Using organization_id:', organization_id);
     
     // Insert new program - use the current user as pic_id if not provided
-    const result = await executeQuery<{ insertId?: number }>(
+    const result: { insertId?: number } = await executeQuery(
       `INSERT INTO programs (
         name, 
         description, 
@@ -395,7 +391,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Get the newly created program
-    const programs = await executeQuery( as any[]
+    const programs = await executeQuery(
       `SELECT 
         p.id, 
         p.name, 
